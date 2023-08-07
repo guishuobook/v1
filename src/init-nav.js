@@ -27,7 +27,7 @@
       activeMenuLink.scrollIntoView();
     }
   }
-
+  var previousObj = null;
   function registerSubmenuToggleListeners() {
     const submenuToggles = document.querySelectorAll(
       ".sidebar .submenu-toggle-click-target"
@@ -38,9 +38,16 @@
         const toggle = e.target.closest("label");
         const submenu = toggle.nextElementSibling;
         const isOpen = toggle.ariaExpanded === "true" ? false : true;
-
+        if(previousObj!=null){
+          if(previousObj.ariaExpanded === "true")  {
+            previousObj.setAttribute("aria-expanded", "false");
+            if(previousObj.nextElementSibling) previousObj.nextElementSibling.setAttribute("aria-hidden", "true");
+          }
+        }
         toggle.setAttribute("aria-expanded", isOpen.toString());
         submenu.setAttribute("aria-hidden", (!isOpen).toString());
+        if(toggle.ariaExpanded === "true")
+          previousObj = toggle;
       });
 
       t.addEventListener("keyup", (e) => {
@@ -112,6 +119,7 @@ function loadmenu(){
     var menus = JSON.parse(this.responseText);
     menus.forEach(outputMenu);
     document.getElementById("menus").innerHTML = menuHtml;
+    alert("Menu Loaded!");
   }
   xmlhttp.open("GET", "./content/menu.json");
   xmlhttp.send();
