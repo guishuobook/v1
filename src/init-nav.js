@@ -2,7 +2,10 @@
   function restoreSidebarState() {
     const activeMenuLink = document.querySelector("a.active");
     const nav = document.querySelector(".sidebar nav");
-    if(activeMenuLink == null) return;
+
+    // When on the home page there there may be no activemenulink selected
+    if (activeMenuLink === null) { return; }
+
     // Ensure that the path to the current active link is open
     // From activeLink -> <li/> -> <ul/> (submenu container)
     let submenuEl = activeMenuLink.parentElement?.parentElement;
@@ -119,7 +122,6 @@ function loadmenu(){
     var menus = JSON.parse(this.responseText);
     menus.forEach(outputMenu);
     document.getElementById("menus").innerHTML = menuHtml;
-    alert("Menu Loaded!");
   }
   xmlhttp.open("GET", "./content/menu.json");
   xmlhttp.send();
@@ -131,4 +133,8 @@ function loadContent(url){
   }
   xmlhttp.open("GET", url);
   xmlhttp.send();
+  if($('#show-icon').is(':visible'))
+  {
+   $('#show-icon').click();
+  }
 }
