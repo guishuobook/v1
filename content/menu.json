@@ -210,7 +210,7 @@
             },
             {
                 "title": "四",
-                "content": "menu5/Content5.html"
+                "content": "menu5/Content4.html"
             },
             {
                 "title": "五",
@@ -312,7 +312,7 @@
             },
             {
                 "title": "四",
-                "content": "menu6/Content5.html"
+                "content": "menu6/Content4.html"
             },
             {
                 "title": "五",
@@ -691,18 +691,28 @@
         "subMenus": []
     },
     {
-        "title": "断说第三十六",
+        "title": "决断说第三十六",
         "content": "Content36.html",
         "subMenus": []
     },
     {
-        "title": "卷后语",
+        "title": "断说第三十七",
         "content": "Content37.html",
         "subMenus": []
     },
     {
-        "title": "书后提示",
+        "title": "卷后语",
         "content": "Content38.html",
+        "subMenus": []
+    },
+    {
+        "title": "书后提示",
+        "content": "Content39.html",
+        "subMenus": []
+    },
+    {
+        "title": "“三尽居士”条析",
+        "content": "Content40.html",
         "subMenus": []
     }
 ]
