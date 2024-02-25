@@ -103,7 +103,7 @@ function outputMenu(menu){
     menuHtml += "        <span><a href=\"JavaScript:loadContent('./content/" + menu.content +"');\">" + menu.title + "</a></span>";
   }
   else{
-    menuHtml += "        <span>" + menu.title + "</span>";
+    menuHtml += "        <span><a href=\"#\">" + menu.title + "</a></span>";
   }
   menuHtml += "      </span>";
   menuHtml += "</label>";
@@ -117,6 +117,9 @@ function outputMenu(menu){
 
 
 function loadmenu(){
+  if($('#show-icon').is(':visible')===false){
+    $('#zuozhe').hide();
+  }
   const xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function() {
     var menus = JSON.parse(this.responseText);
@@ -137,4 +140,12 @@ function loadContent(url){
   {
    $('#show-icon').click();
   }
+}
+function loadContent2(url){
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    document.getElementById("main").innerHTML = this.responseText;
+  }
+  xmlhttp.open("GET", url);
+  xmlhttp.send();
 }

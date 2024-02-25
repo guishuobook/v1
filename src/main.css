@@ -1388,7 +1388,7 @@ li code {
   input.menu-toggle-checkbox:checked ~ .docs-outer-container .sidebar {
     display: block;
     width: 100%;
-    height: 80vh; 
+    height: 82vh; 
     overflow: auto;
   } }
 
